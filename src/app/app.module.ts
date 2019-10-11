@@ -14,6 +14,7 @@
 
 import '../assets/css/common.css';
 import '../assets/css/papaya.css';
+import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, Injector, NgModule } from '@angular/core';
@@ -142,6 +143,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
     imports: [
+        AppRoutingModule,
         BrowserAnimationsModule,
         CommonModule,
         FormsModule,

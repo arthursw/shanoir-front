@@ -20,6 +20,7 @@ declare var Keycloak: any;
 @Injectable()
 export class KeycloakService {
     static auth: any = {};
+    // static auth: any = { loggedIn: true };
     private gettingToken: boolean = false;
     private tokenPromise: Promise<string>;
 
