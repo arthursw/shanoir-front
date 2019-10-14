@@ -30,7 +30,7 @@ export class KeycloakService {
             realm: 'shanoir-ng',
             clientId: 'shanoir-ng-front',
         });
-        KeycloakService.auth.loggedIn = false;
+        KeycloakService.auth.loggedIn = true; // false;
 
         return new Promise((resolve, reject) => {
             keycloakAuth.init({ onLoad: 'login-required' })

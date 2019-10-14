@@ -31,11 +31,6 @@ export abstract class EntityService<T extends Entity> {
     constructor(protected http: HttpClient) {}
 
     getAll(): Promise<T[]> {
-
-        this.http.get('https://example.com/api/items').pipe(map(data => {})).subscribe(result => {
-          console.log(result);
-        });
-
         return this.http.get<T[]>(this.API_URL)
             .pipe(map(this.mapEntityList))
             .toPromise();

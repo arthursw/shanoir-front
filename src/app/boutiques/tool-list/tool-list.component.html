@@ -11,12 +11,10 @@ the Free Software Foundation, either version 3 of the License, or
 You should have received a copy of the GNU General Public License
 along with this program. If not, see https://www.gnu.org/licenses/gpl-3.0.html
 -->
-
-<header></header>
-<navbar *ngIf="isAuthenticated()"></navbar>
-<breadcrumbs *ngIf="isAuthenticated()"></breadcrumbs>
-<div class="main-content">
-    <router-outlet></router-outlet>
-</div>
-
-<msg-box></msg-box>
+  
+<shanoir-table #table
+    [getPage]="getPage.bind(this)" 
+    [columnDefs]="columnDefs" 
+    [customActionDefs]="customActionDefs" 
+    (rowClick)="onToolSelected($event)">
+</shanoir-table>

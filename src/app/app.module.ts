@@ -12,8 +12,8 @@
  * along with this program. If not, see https://www.gnu.org/licenses/gpl-3.0.html
  */
 
-import '../assets/css/common.css';
-import '../assets/css/papaya.css';
+// import '../assets/css/common.css';
+// import '../assets/css/papaya.css';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -47,9 +47,6 @@ import { CenterService } from './centers/shared/center.service';
 import { CoilListComponent } from './coils/coil-list/coil-list.component';
 import { CoilComponent } from './coils/coil/coil.component';
 import { CoilService } from './coils/shared/coil.service';
-// import { ToolListComponent } from './boutiques/tool-list/tool-list.component';
-// import { BoutiquesComponent } from './boutiques/boutiques.component';
-// import { ToolService } from './boutiques/shared/tool.service';
 import { DatasetListComponent } from './datasets/dataset-list/dataset-list.component';
 import { CommonDatasetComponent } from './datasets/dataset/common/dataset.common.component';
 import { DatasetComponent } from './datasets/dataset/dataset.component';
@@ -139,6 +136,22 @@ import { TaskService } from './async-tasks/task.service';
 import { StudyRightsService } from './studies/shared/study-rights.service';
 import { RouterModule, Routes } from '@angular/router';
 
+// Boutiques
+import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+import { BoutiquesRxStompConfig } from './boutiques/boutiques-rx-stomp.config';
+import { BoutiquesComponent } from './boutiques/boutiques.component';
+import { ParameterComponent } from './boutiques/invocation-gui/parameter/parameter.component';
+import { ParameterGroupComponent } from './boutiques/invocation-gui/parameter-group/parameter-group.component';
+import { InvocationComponent } from './boutiques/invocation/invocation.component';
+import { InvocationGuiComponent } from './boutiques/invocation-gui/invocation-gui.component';
+import { ExecutionComponent } from './boutiques/execution/execution.component';
+import { SearchToolsComponent } from './boutiques/search-tools/search-tools.component';
+import { ToolListComponent } from './boutiques/tool-list/tool-list.component';
+import { ToolDescriptorInfoComponent } from './boutiques/tool-descriptor-info/tool-descriptor-info.component';
+import { ToolService } from './boutiques/tool.service';
+
+import { ReplaceSpacePipe } from './utils/pipes';
+
 //import { ModalService} from './shared/components/modal/modal.service';
 
 @NgModule({
@@ -197,8 +210,6 @@ import { RouterModule, Routes } from '@angular/router';
         InstrumentAssessmentComponent,
         CoilComponent,
         CoilListComponent,
-        // BoutiquesComponent,
-        // ToolListComponent,
         SubjectListComponent,
         SubjectComponent,
         SubjectTreeComponent,
@@ -232,7 +243,17 @@ import { RouterModule, Routes } from '@angular/router';
         AsyncTasksComponent,
         ToggleSwitchComponent,
         CheckboxComponent,
-        HelpMessageComponent
+        HelpMessageComponent,
+        BoutiquesComponent,
+        ToolListComponent,
+        InvocationComponent,
+        InvocationGuiComponent,
+        ExecutionComponent,
+        SearchToolsComponent,
+        ParameterComponent,
+        ParameterGroupComponent,
+        ToolDescriptorInfoComponent,
+        ReplaceSpacePipe
     ],
     entryComponents: [
         ConfirmDialogComponent,
@@ -277,7 +298,17 @@ import { RouterModule, Routes } from '@angular/router';
         ImportDataService,
         NiftiConverterService,
         TaskService,
-        StudyRightsService
+        StudyRightsService,
+        ToolService,
+        {
+          provide: InjectableRxStompConfig,
+          useValue: BoutiquesRxStompConfig
+        },
+        {
+          provide: RxStompService,
+          useFactory: rxStompServiceFactory,
+          deps: [InjectableRxStompConfig]
+        }
     ],
     bootstrap: [AppComponent],
 })
