@@ -22,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Autosize } from 'ng-autosize';
-import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import {
     AcquisitionEquipmentListComponent,
@@ -162,7 +162,7 @@ import { ReplaceSpacePipe } from './utils/pipes';
         FormsModule,
         HttpClientModule,
         MatDialogModule,
-        AngularMyDatePickerModule,
+        MyDatePickerModule,
         ReactiveFormsModule,
         RouterModule
     ],
