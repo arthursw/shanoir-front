@@ -47,6 +47,9 @@ import { CoilListComponent } from './coils/coil-list/coil-list.component';
 import { CoilComponent } from './coils/coil/coil.component';
 import { CoilService } from './coils/shared/coil.service';
 import { DatasetListComponent } from './datasets/dataset-list/dataset-list.component';
+import { BoutiquesDatasetListComponent } from './boutiques/dataset-list/dataset-list.component';
+import { BoutiquesDatasetComponent } from './boutiques/dataset/dataset.component';
+import { FileTreeComponent } from './boutiques/tree/file-tree.component';
 import { CommonDatasetComponent } from './datasets/dataset/common/dataset.common.component';
 import { DatasetComponent } from './datasets/dataset/dataset.component';
 import { MrDatasetComponent } from './datasets/dataset/mr/dataset.mr.component';
@@ -136,11 +139,12 @@ import { StudyRightsService } from './studies/shared/study-rights.service';
 import { RouterModule, Routes } from '@angular/router';
 
 // Boutiques
-import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
-import { BoutiquesRxStompConfig } from './boutiques/boutiques-rx-stomp.config';
+// import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+// import { BoutiquesRxStompConfig } from './boutiques/boutiques-rx-stomp.config';
 import { BoutiquesComponent } from './boutiques/boutiques.component';
 import { ParameterComponent } from './boutiques/invocation-gui/parameter/parameter.component';
 import { ParameterGroupComponent } from './boutiques/invocation-gui/parameter-group/parameter-group.component';
+import { InvocationExecutionComponent } from './boutiques/invocation-execution/invocation-execution.component';
 import { InvocationComponent } from './boutiques/invocation/invocation.component';
 import { InvocationGuiComponent } from './boutiques/invocation-gui/invocation-gui.component';
 import { ExecutionComponent } from './boutiques/execution/execution.component';
@@ -215,6 +219,9 @@ import { ReplaceSpacePipe } from './utils/pipes';
         StudyNamePipe,
         DatasetComponent,
         DatasetListComponent,
+        BoutiquesDatasetListComponent,
+        BoutiquesDatasetComponent,
+        FileTreeComponent,
         DatepickerComponent,
         MrDatasetComponent,
         CommonDatasetComponent,
@@ -252,7 +259,8 @@ import { ReplaceSpacePipe } from './utils/pipes';
         ParameterComponent,
         ParameterGroupComponent,
         ToolDescriptorInfoComponent,
-        ReplaceSpacePipe
+        ReplaceSpacePipe,
+        InvocationExecutionComponent
     ],
     entryComponents: [
         ConfirmDialogComponent,
@@ -303,15 +311,15 @@ import { ReplaceSpacePipe } from './utils/pipes';
         TaskService,
         StudyRightsService,
         ToolService,
-        {
-          provide: InjectableRxStompConfig,
-          useValue: BoutiquesRxStompConfig
-        },
-        {
-          provide: RxStompService,
-          useFactory: rxStompServiceFactory,
-          deps: [InjectableRxStompConfig]
-        }
+        // {
+        //   provide: InjectableRxStompConfig,
+        //   useValue: BoutiquesRxStompConfig
+        // },
+        // {
+        //   provide: RxStompService,
+        //   useFactory: rxStompServiceFactory,
+        //   deps: [InjectableRxStompConfig]
+        // }
     ],
     bootstrap: [AppComponent]
 })
